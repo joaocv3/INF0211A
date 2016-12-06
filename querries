@@ -1,0 +1,11 @@
+﻿-- Trabalho INF0211A --
+
+-- 1.	Exibir os nomes das equipes e local de suas sedes, com os nomes de seus pilotos.
+
+SELECT DISTINCT e.nome, e.sede, p1.nome
+FROM equipe e, pontuacao p, piloto p1
+WHERE e.cod = p.cod_equipe
+AND p1.cod = p.cod_piloto
+ORDER BY e.nome
+
+
