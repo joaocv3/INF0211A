@@ -8,4 +8,9 @@ WHERE e.cod = p.cod_equipe
 AND p1.cod = p.cod_piloto
 ORDER BY e.nome
 
+-- 3.	Exibir a relação de provas do campeonato com as datas de realização, cidade e país,  em ordem crescente de data.
 
+SELECT p.data, c.nome 
+FROM prova p, circuito c 
+WHERE c.cod = p.cod_circuito
+ORDER BY p.data ASC
