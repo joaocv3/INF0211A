@@ -33,3 +33,17 @@ WHERE p.cod_campeonato = 2006
 AND p1.cod = p.cod_piloto
 ORDER BY p.pontos DESC
 limit 1
+
+-- menor por ano
+SELECT p1.nome, p.pontos, e.nome, p.cod_campeonato
+FROM pontuacao p, piloto p1, equipe e, campeonato c
+WHERE p.cod_campeonato = c.ano
+AND p1.cod =(SELECT p.cod_piloto
+		FROM pontuacao p
+		WHERE p.pontos > 0
+		AND c.ano = p.cod_campeonato
+		ORDER BY p.pontos
+		LIMIT 1)
+AND p.cod_piloto = p1.cod
+AND p.cod_equipe = e.cod
+ORDER BY p.cod_campeonato
