@@ -80,3 +80,10 @@ FROM equipe e, pontuacao p
 WHERE p.cod_campeonato = 2006
 AND p.cod_equipe = e.cod
 GROUP BY e.nome, e.cod
+
+-- 7. Exibir o grid de largada de cada prova (circuito), com o nome da prova (circuito).
+
+SELECT c.nome, g.largada
+FROM grid g, circuito c
+WHERE g.cod_circuito = c.cod
+
