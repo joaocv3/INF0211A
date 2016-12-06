@@ -83,7 +83,17 @@ GROUP BY e.nome, e.cod
 
 -- 7. Exibir o grid de largada de cada prova (circuito), com o nome da prova (circuito).
 
-SELECT c.nome, g.largada
-FROM grid g, circuito c
+SELECT c.nome, g.largada, p.nome
+FROM grid g, circuito c, piloto p 
 WHERE g.cod_circuito = c.cod
+AND p.cod = g.cod_piloto
+ORDER BY g.cod_campeonato, c.cod, g.largada
 
+-- 8 Exibir o grid de chegada (resultado) de cada prova (circuito), com o nome da prova (circuito).
+
+
+SELECT c.nome, g.chegada, p.nome
+FROM grid g, circuito c, piloto p 
+WHERE g.cod_circuito = c.cod
+AND p.cod = g.cod_piloto
+ORDER BY g.cod_campeonato, c.cod, g.chegada
