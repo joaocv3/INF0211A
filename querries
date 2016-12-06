@@ -14,3 +14,14 @@ SELECT p.data, c.nome
 FROM prova p, circuito c 
 WHERE c.cod = p.cod_circuito
 ORDER BY p.data ASC
+
+-- 4.	Exibir o nome e a equipe do piloto com melhor classificação e seu número de pontos,
+-- e do piloto com pior classificação e seu número de pontos (em um ano específico, e por ano).
+
+-- menor em um ano especifico
+SELECT p1.nome, p.pontos, e.nome, p.cod_campeonato
+FROM pontuacao p, piloto p1, equipe e
+WHERE p.cod_campeonato = 2006
+AND p1.cod = p.cod_piloto
+ORDER BY p.pontos
+limit 1
