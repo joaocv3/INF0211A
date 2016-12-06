@@ -60,3 +60,17 @@ AND p1.cod = (SELECT p.cod_piloto
 AND p.cod_piloto = p1.cod
 AND p.cod_equipe = e.cod
 ORDER BY p.cod_campeonato
+
+
+-- 5. Exibir os nomes dos pilotos vencedores de cada prova (circuito), suas equipes
+-- e seus pontos, em ordem crescente de pontos (em um ano específico).
+
+SELECT p.nome, ci.nome
+FROM piloto p, prova pr, circuito ci, grid g
+WHERE g.chegada = 1
+AND g.cod_campeonato = 2006
+AND g.cod_piloto = p.cod
+AND g.cod_circuito =  ci.cod
+ORDER BY g.cod_circuito
+
+
