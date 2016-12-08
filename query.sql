@@ -97,3 +97,12 @@ FROM grid g, circuito c, piloto p
 WHERE g.cod_circuito = c.cod
 AND p.cod = g.cod_piloto
 ORDER BY g.cod_campeonato, c.cod, g.chegada
+
+-- 9 Exibir lista de de maiores vencedores de circuitos em todos os anos
+
+SELECT p.nome, count(*) AS counter
+  FROM grid g, piloto p
+ WHERE g.chegada = 1
+   AND g.cod_piloto = p.cod
+ GROUP BY p.nome
+ ORDER BY counter DESC 
